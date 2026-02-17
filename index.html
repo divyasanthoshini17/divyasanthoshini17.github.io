@@ -2,162 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Divya Santhoshini | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
     <style>
-        body{
-            background-color: rgb(234, 188, 196);
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
         }
-        tr:nth-child(3n) {
-            background-color:rgb(231, 125, 125);
+
+        header {
+            background-color: #d81b60;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
         }
-        tr:nth-child(3n+1) {
-            background-color:rgb(250, 171, 171);
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 15px;
         }
-        tr:nth-child(3n+2) {
-            background-color:rgb(253, 153, 153);
+
+        section {
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: auto;
         }
-        th{
-            background-color: rgb(220, 96, 96) ;
-            color: rgb(106, 4, 4);
+
+        h2 {
+            color: #d81b60;
+            border-bottom: 2px solid #d81b60;
+            display: inline-block;
+            padding-bottom: 5px;
         }
-        tr:hover{
-            color: azure;
-            background-color: rgb(219, 70, 70);
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
         }
-        input{
-            border-color: rgb(219, 70, 70);;
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .contact p {
+            margin: 8px 0;
         }
     </style>
 </head>
+
 <body>
-    <script src="script.js"></script>
 
-    <h3>Search:<input type="search"> </h2>
-    <table border="2px">
-        <thead>
-            <tr>
-                <th >Title<span onclick="acsending('title')">▲</span><span onclick="desending('title')">▼</span></th>
-                <th>isbn<span onclick="acsending('isbn')">▲</span><span onclick="desending('isbn')">▼</span></th>
-                <th >Pagecount<span onclick="acsending('pagecount')">▲</span><span onclick="desending('pagecount')">▼</span></th>
-                <th >Thumbnail<span onclick="acsending('thumbnailUrl')">▲</span ><span onclick="desending('thumbnailUrl')">▼</span></th>
-                <th >Status<span onclick="acsending('status')">▲</span><span onclick="desending('status')">▼</span></th>
-                <th >Authors<span onclick="acsending('authors')">▲</span><span onclick="desending('authors')">▼</span></th>
-                <th >Categories<span onclick="acsending('categories')">▲</span><span onclick="desending('categories')">▼</span></th>
-                <th >Price<span onclick="acsending('price')">▲</span><span onclick="desending('price')">▼</span></th>
-                <th >Currency<span onclick="acsending('currency')">▲</span><span onclick="desending('currency')">▼</span></th>
-                <th >Discount<span onclick="acsending('discount')">▲</span><span onclick="desending('discount')">▼</span></th>
-                <th>Discount Units<span onclick="acsending('discountUnits')">▲</span><span onclick="desending('discountUnits')">▼</span></th>
+<header>
+    <img src="3.jpeg" alt="Divya Santhoshini">
+    <h1>Divya Santhoshini</h1>
+    <p>Student | Frontend Developer | Text Processor</p>
+</header>
 
-            </tr>
-        </thead>
-        <tbody id="mytable">
-            
-        </tbody>
-    </table>
-    <br><br>
-    <button onclick="prev()">Prev</button>
-    <button onclick="next()">Next</button>
-    <script>
-        function table(){
-            ar.forEach(function(ar){
-                var ntr= document.createElement("tr");
+<section>
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+            I consider myself a responsible and sincere person.
+            I am a computer science student with an interest in frontend development
+            and building useful, real-world applications.
+        </p>
+    </div>
+</section>
 
-                var ntitle= document.createElement("td");
-                ntitle.innerText=ar.title;
-                
-                var nisbn=document.createElement("td")
-                nisbn.innerText=ar.isbn
+<section>
+    <h2>Skills</h2>
+    <div class="card">
+        <ul>
+            <li>Frontend Development</li>
+            <li>HTML & CSS</li>
+            <li>Basic JavaScript</li>
+            <li>Text Processing</li>
+            <li>Web Application Design</li>
+        </ul>
+    </div>
+</section>
 
-                var npagecount=document.createElement("td")
-                npagecount.innerText=ar.pagecount
+<section>
+    <h2>Project</h2>
+    <div class="card">
+        <h3>E-Waste Converto</h3>
+        <p>
+            This project develops a comprehensive E-Waste Management System that
+            simplifies the collection, tracking, and recycling of discarded electronic products.
+        </p>
+        <p>
+            Users can schedule pickups and monitor request status through a web interface,
+            while a central database coordinates data and notifications between waste generators
+            and authorized recyclers.
+        </p>
+        <p>
+            An integrated AI image-analysis module automatically identifies and classifies
+            e-waste components such as circuit boards and batteries from uploaded images,
+            improving sorting accuracy and reducing manual effort.
+        </p>
+    </div>
+</section>
 
-                var nthumbnail=document.createElement("td")
-                nthumbnail.innerText=ar.thumbnailUrl
+<section>
+    <h2>Education</h2>
+    <div class="card">
+        <p><strong>10th Grade:</strong> Completed</p>
+        <p><strong>Diploma:</strong> Final Year, Computer Science</p>
+    </div>
+</section>
 
-                var nstatus=document.createElement("td")
-                nstatus.innerText=ar.status
+<section>
+    <h2>Contact</h2>
+    <div class="card contact">
+        <p><strong>Email:</strong> divyasanthoshini4@gmail.com</p>
+        <p><strong>Phone:</strong> 8519980635</p>
+    </div>
+</section>
 
-                var nauthors=document.createElement("td")
-                nauthors.innerText=ar.authors
-                
-                var ncategories=document.createElement("td")
-                ncategories.innerText=ar.categories
+<section>
+    <h2>My Tasks</h2>
+    <div class="card contact">
+        <a href="my tasks.html">Click here to view:</a>
+    </div>
+</section>
 
-                var nprice=document.createElement("td")
-                nprice.innerText=ar.price
+<footer>
+    <p>© 2026 Divya Santhoshini | Portfolio</p>
+</footer>
 
-                var ncurrency=document.createElement("td")
-                ncurrency.innerText=ar.currency
-
-                var ndiscount=document.createElement("td")
-                ndiscount.innerText=ar.discount
-
-                var ndiscountunits=document.createElement("td")
-                ndiscountunits.innerText=ar.discountUnits
-
-                ntr.appendChild(ntitle);
-                ntr.appendChild(nisbn);
-                ntr.appendChild(npagecount);
-                ntr.appendChild(nthumbnail);
-                ntr.appendChild(nstatus);
-                ntr.appendChild(nauthors);
-                ntr.appendChild(ncategories);
-                ntr.appendChild(nprice);
-                ntr.appendChild(ncurrency);
-                ntr.appendChild(ndiscount);
-                ntr.appendChild(ndiscountunits);
-
-                // console.log(ntr);
-                document.querySelector("#mytable").appendChild(ntr);
-            })
-        }
-        table();
-
-
-        // function sorting(k) {
-        //     ar.sort(function (a1, a2) {
-        //         if (a1[k] > a2[k]) { return 1 }
-        //         else { return -1 }
-        //     })
-        //     document.getElementById("mytable").innerHTML = ""
-
-        //     table();
-        // }
-
-
-        function acsending(p){
-            ar.sort(function(a1,a2){
-                if(a1[p]>a2[p]){
-                    return 1}
-                else{
-                    return-1
-                }
-                })
-                document.getElementById("mytable").innerHTML=""
-                table()
-        }
-
-        function desending(p){
-            ar.sort(function(a1,a2){
-                if(a1[p]>a2[p]){
-                    return -1}
-                else{
-                    return 1
-                }
-                })
-                document.getElementById("mytable").innerHTML=""
-                table()
-        }
-
-        function prev(){
-
-        }
-
-        function next(){
-
-        }
-
-    </script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(234, 188, 196);
+        }
+        tr:nth-child(3n) {
+            background-color:rgb(231, 125, 125);
+        }
+        tr:nth-child(3n+1) {
+            background-color:rgb(250, 171, 171);
+        }
+        tr:nth-child(3n+2) {
+            background-color:rgb(253, 153, 153);
+        }
+        th{
+            background-color: rgb(220, 96, 96) ;
+            color: rgb(106, 4, 4);
+        }
+        tr:hover{
+            color: azure;
+            background-color: rgb(219, 70, 70);
+        }
+        input{
+            border-color: rgb(219, 70, 70);;
+        }
+    </style>
+</head>
+<body>
+    <script src="script.js"></script>
+
+    <h3>Search:<input type="search"> </h2>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th >Title<span onclick="acsending('title')">▲</span><span onclick="desending('title')">▼</span></th>
+                <th>isbn<span onclick="acsending('isbn')">▲</span><span onclick="desending('isbn')">▼</span></th>
+                <th >Pagecount<span onclick="acsending('pagecount')">▲</span><span onclick="desending('pagecount')">▼</span></th>
+                <th >Thumbnail<span onclick="acsending('thumbnailUrl')">▲</span ><span onclick="desending('thumbnailUrl')">▼</span></th>
+                <th >Status<span onclick="acsending('status')">▲</span><span onclick="desending('status')">▼</span></th>
+                <th >Authors<span onclick="acsending('authors')">▲</span><span onclick="desending('authors')">▼</span></th>
+                <th >Categories<span onclick="acsending('categories')">▲</span><span onclick="desending('categories')">▼</span></th>
+                <th >Price<span onclick="acsending('price')">▲</span><span onclick="desending('price')">▼</span></th>
+                <th >Currency<span onclick="acsending('currency')">▲</span><span onclick="desending('currency')">▼</span></th>
+                <th >Discount<span onclick="acsending('discount')">▲</span><span onclick="desending('discount')">▼</span></th>
+                <th>Discount Units<span onclick="acsending('discountUnits')">▲</span><span onclick="desending('discountUnits')">▼</span></th>
+
+            </tr>
+        </thead>
+        <tbody id="mytable">
+            
+        </tbody>
+    </table>
+    <br><br>
+    <button onclick="prev()">Prev</button>
+    <button onclick="next()">Next</button>
+    <script>
+        function table(){
+            ar.forEach(function(ar){
+                var ntr= document.createElement("tr");
+
+                var ntitle= document.createElement("td");
+                ntitle.innerText=ar.title;
+                
+                var nisbn=document.createElement("td")
+                nisbn.innerText=ar.isbn
+
+                var npagecount=document.createElement("td")
+                npagecount.innerText=ar.pagecount
+
+                var nthumbnail=document.createElement("td")
+                nthumbnail.innerText=ar.thumbnailUrl
+
+                var nstatus=document.createElement("td")
+                nstatus.innerText=ar.status
+
+                var nauthors=document.createElement("td")
+                nauthors.innerText=ar.authors
+                
+                var ncategories=document.createElement("td")
+                ncategories.innerText=ar.categories
+
+                var nprice=document.createElement("td")
+                nprice.innerText=ar.price
+
+                var ncurrency=document.createElement("td")
+                ncurrency.innerText=ar.currency
+
+                var ndiscount=document.createElement("td")
+                ndiscount.innerText=ar.discount
+
+                var ndiscountunits=document.createElement("td")
+                ndiscountunits.innerText=ar.discountUnits
+
+                ntr.appendChild(ntitle);
+                ntr.appendChild(nisbn);
+                ntr.appendChild(npagecount);
+                ntr.appendChild(nthumbnail);
+                ntr.appendChild(nstatus);
+                ntr.appendChild(nauthors);
+                ntr.appendChild(ncategories);
+                ntr.appendChild(nprice);
+                ntr.appendChild(ncurrency);
+                ntr.appendChild(ndiscount);
+                ntr.appendChild(ndiscountunits);
+
+                // console.log(ntr);
+                document.querySelector("#mytable").appendChild(ntr);
+            })
+        }
+        table();
+
+
+        // function sorting(k) {
+        //     ar.sort(function (a1, a2) {
+        //         if (a1[k] > a2[k]) { return 1 }
+        //         else { return -1 }
+        //     })
+        //     document.getElementById("mytable").innerHTML = ""
+
+        //     table();
+        // }
+
+
+        function acsending(p){
+            ar.sort(function(a1,a2){
+                if(a1[p]>a2[p]){
+                    return 1}
+                else{
+                    return-1
+                }
+                })
+                document.getElementById("mytable").innerHTML=""
+                table()
+        }
+
+        function desending(p){
+            ar.sort(function(a1,a2){
+                if(a1[p]>a2[p]){
+                    return -1}
+                else{
+                    return 1
+                }
+                })
+                document.getElementById("mytable").innerHTML=""
+                table()
+        }
+
+        function prev(){
+
+        }
+
+        function next(){
+
+        }
+
+    </script>
+</body>
+</html>
