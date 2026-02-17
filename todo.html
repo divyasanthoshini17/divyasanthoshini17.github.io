@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="t1">
+    <button onclick="addTodo()">add todo</button>
+    <ul id="u1"></ul>
+    <script>
+        var todolist=[];
+
+        var list_of_todo = document.querySelector("ul");
+
+        if(window.localStorage.getItem("todolist"))
+        {
+            todolist = JSON.parse(window.localStorage.getItem("todolist"));
+            genUI();
+        }
+        function genUI()
+        {
+            document.getElementById("u1").innerText="";
+             todolist.forEach((todo)=>
+             {
+               var nli= document.createElement("li")
+               nli.innerText=todo
+               document.getElementById("u1").appendChild(nli)
+               window.localStorage.setItem("todolist", JSON.stringify(todolist));
+
+
+               let del=document.createElement("button");
+                del.innerText="delete";
+                del.addEventListener("click",()=>{
+                    nli.remove();
+                    todos.
+                    window.localStorage.setItem("todolist",JSON.stringify(todolist));
+                });
+                nli.appendChild(del);
+                document.getElementById("u1").appendChild(nli);
+             })
+
+
+             
+        }
+        genUI();  
+
+       function addTodo()
+       {
+            var ntd=document.getElementById("t1").value;
+            todolist.push(ntd)
+            genUI();
+       }
+       
+    </script>
+</body>
+</html>
