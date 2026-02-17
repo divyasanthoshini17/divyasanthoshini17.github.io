@@ -1,720 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel India</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel India</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family: "Segoe UI", sans-serif;
-    color:#f5e6cc;
-}
-
-/* Background */
-#backimg{
-    position:fixed;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-1;
-    filter: brightness(0.55);
-}
-
-/* NAVBAR */
-#navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 40px;
-    background:rgba(20,15,10,0.65);
-    border-bottom:1px solid rgba(255,153,51,0.25);
-    backdrop-filter: blur(8px);
-    
-}
-
-#icon-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.bi-luggage-fill{
-    font-size:2rem;
-    color:#ff9933;
-}
-
-#icon-box h1{
-    font-weight:600;
-}
-
-#navitems ul{
-    list-style:none;
-}
-
-#navitems li{
-    display:inline-block;
-    margin-left:20px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-#navitems li:hover{
-    color:#ff9933;
-}
-
-.bi-list {
-    display: none;
-}
-#check{
-    display: none;
-}
-
-/* HERO */
-#hero{
-    display:flex;
-    /* min-height:85vh; */
-    padding:40px;
-}
-
-#hero-text{
-    width:50%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:15px;
-}
-
-#hero-text h1{
-    font-size:3rem;
-}
-
-#hero-text p{
-    font-size:1.2rem;
-    color:#ddd;
-}
-
-/* LOGIN */
-#login{
-    width:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    
-}
-
-
-#form{
-    width:320px;
-    padding:25px;
-    background:rgba(20,15,10,0.65);
-    border:1px solid rgba(255,153,51,0.25);
-    border-radius:12px;
-    backdrop-filter: blur(10px);
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
-#form h1{
-    text-align:center;
-}
-
-/* Floating Input */
-.input-box{
-    position:relative;
-}
-
-.input-box input{
-    width:100%;
-    padding:12px;
-    border-radius:6px;
-    border:1px solid #555;
-    background:transparent;
-    color:white;
-    outline:none;
-}
-
-.input-box label{
-    position:absolute;
-    left:12px;
-    top:12px;
-    font-size:14px;
-    color:#bbb;
-    transition:0.3s;
-    /* pointer-events:none; */
-}
-
-.input-box input:focus + label,
-.input-box input:not(:placeholder-shown) + label{
-    top:-8px;
-    font-size:12px;
-    color:#ff9933;
-    background:black;
-    padding:0 5px;
-}
-
-#form button{
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#ff9933;
-    color:black;
-    font-weight:600;
-    cursor:pointer;
-    
-}
-
-#form button:hover{
-    background:#df9953;
-    
-}
-
-/* GRIDS */
-       .container{
-            margin:40px;
-            padding:10px;
-
-            background:rgba(15,10,6,0.35);
-            backdrop-filter: blur(8px);
-
-            border-radius:16px;
-            border:1px solid rgba(255,153,51,0.2);
-
-            box-shadow:
-                0 20px 40px rgba(0,0,0,0.6),
-                inset 0 0 40px rgba(255,153,51,0.08);
-
-            display:grid;
-            gap:6px;
-        }
-
-        .grid{
-            border-radius:14px;
-            overflow:hidden;
-            position:relative;
-
-            /* Warm glass background */
-            background:rgba(20,15,10,0.35);
-            backdrop-filter: blur(6px);
-
-            /* Soft themed border */
-            border:1px solid rgba(255,153,51,0.25);
-
-            /* Smooth animation */
-            transition:all 0.4s ease;
-        }
-
-        .grid:hover{
-            transform:translateY(-6px) scale(1.01);
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.6),
-                0 0 18px rgba(255,153,51,0.25);
-        }
-
-
-        .d1{
-            grid-column-start:1 ;
-            grid-column-end: 2;
-            overflow: hidden;
-        }
-        .d2{
-            grid-column-start: 2 ;
-            grid-column-end: 4;
-        }
-        .d3{
-            grid-row-start: 1;
-            grid-row-end: 3;
-            grid-column-start: 4 ;
-            grid-column-end: 5;
-        }
-        .d4{
-            grid-row-start: 2;
-            grid-column-start: 1 ;
-            grid-column-end: 3;
-        }
-        .d5{
-            grid-column-start: 3 ;
-            grid-column-end: 4;
-        }
-        .d6{
-            grid-row-start: 3;
-            grid-row-end: 5;
-            grid-column-start: 1;
-            grid-column-end: 2;
-        }
-        .d7{
-            grid-column-start: 2;
-            grid-column-end: 4;
-        }
-        .d8{
-            grid-column-start: 4;
-            grid-column-end: 5;
-        }
-        .d9{
-            grid-row-start: 4;
-            grid-column-start: 2;
-            grid-column-end: 3;
-        }
-        .d10{
-            grid-column-start: 3;
-            grid-column-end: 5;
-        }
-        img{
-            width:100%;
-            height:100%;
-            object-fit:cover; 
-        }
-
-
-
-/* RESPONSIVE */
-@media screen and (max-width:800px){
-
-    #navbar {
-                justify-content: space-between;
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
             }
 
-            ul {
-                display: none;
+            body {
+                font-family: "Segoe UI", sans-serif;
+                color: #f5e6cc;
+            }
+
+            /* Background */
+            #backimg {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1;
+                filter: brightness(0.55);
+            }
+
+            /* NAVBAR */
+            #navbar {
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 18px 40px;
+                background: rgba(20, 15, 10, 0.65);
+                border-bottom: 1px solid rgba(255, 153, 51, 0.25);
+                backdrop-filter: blur(8px);
+            }
+
+            #icon-box {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .bi-luggage-fill {
+                font-size: 2.3rem;
+                color: #ff9933;
+            }
+
+            #icon-box h1 {
+                font-weight: 600;
+            }
+
+            #navitems ul {
+                list-style: none;
+            }
+
+            #navitems li {
+                display: inline-block;
+                margin-left: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #navitems li:hover {
+                color: #ff9933;
             }
 
             .bi-list {
-                display: block;
-                font-size: 2em;
-                padding: 10px;
-                color: white;
+                display: none;
+                
             }
-            #check:checked~#menu{
-                border-radius: 10px;
+
+            #check {
+                display: none;
+            }
+
+            /* HERO */
+            #hero {
+                display: flex;
+                padding: 40px;
+            }
+
+            #hero-text {
+                width: 50%;
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            #hero-text h1 {
+                font-size: 3rem;
+            }
+
+            #hero-text p {
+                font-size: 1.2rem;
+                color: #ddd;
+            }
+
+            /* LOGIN */
+            #login {
+                width: 50%;
+                display: flex;
+                justify-content: center;
                 align-items: center;
-                transition: 5s;
-                position: absolute;
-                top:70px;
-                right: 10px;
-                background-color: rgba(63, 49, 49, 0.5);;
+            }
+
+            #form {
+                width: 300px;
+                padding: 25px;
+                background: rgba(20, 15, 10, 0.65);
+                border: 1px solid rgba(255, 153, 51, 0.25);
+                border-radius: 12px;
                 backdrop-filter: blur(10px);
-                gap: 10px;
-                width: 20%;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
             }
-            #menu li{
+
+            #form h1 {
                 text-align: center;
-                width: 60%;
-                /* border-bottom: 2px solid ; */
             }
-            #menu li:hover{
+
+            /* Floating Input */
+            .input-box {
+                position: relative;
+            }
+
+            .input-box input {
+                width: 100%;
+                padding: 12px;
+                border-radius: 6px;
+                border: 1px solid #555;
+                background: transparent;
+                color: white;
+                outline: none;
+            }
+
+            .input-box label {
+                position: absolute;
+                left: 12px;
+                top: 12px;
+                font-size: 14px;
+                color: #bbb;
+                transition: 0.3s;
+            }
+
+            .input-box input:focus + label,
+            .input-box input:not(:placeholder-shown) + label {
+                top: -8px;
+                font-size: 12px;
                 color: #ff9933;
-                transform: scale(1.15);
+                background: black;
+                padding: 0 5px;
             }
 
-            #hero{
-                flex-direction:column;
-                gap:40px;
+            #form button {
+                padding: 12px;
+                border: none;
+                border-radius: 8px;
+                background: #ff9933;
+                color: black;
+                font-weight: 600;
+                cursor: pointer;
             }
 
-            #hero-text,
-            #login{
+            #form button:hover {
+                background: #e98a2b;
+                outline: #ff9933;
+            }
+
+            /* GRID CONTAINER */
+            .container {
+                margin: 40px;
+                padding: 10px;
+                background: rgba(15, 10, 6, 0.35);
+                backdrop-filter: blur(8px);
+                border-radius: 16px;
+                border: 1px solid rgba(255, 153, 51, 0.2);
+                display: grid;
+                gap: 6px;
+            }
+
+            .grid {
+                border-radius: 14px;
+                position: relative;
+                background: rgba(20, 15, 10, 0.35);
+                backdrop-filter: blur(6px);
+                border: 1px solid rgba(255, 153, 51, 0.25);
+                transition: all 0.4s ease;
+                cursor: pointer;
+            }
+
+            .grid:hover {
+                transform: translateY(-6px) scale(1.01);
+                box-shadow:
+                    0 15px 35px rgba(0, 0, 0, 0.6),
+                    0 0 18px rgba(255, 153, 51, 0.25);
+            }
+            .d1{
+                grid-column-start:1 ;
+                grid-column-end: 2;
+                overflow: hidden;
+            }
+            .d2{
+                grid-column-start: 2 ;
+                grid-column-end: 4;
+            }
+            .d3{
+                grid-row-start: 1;
+                grid-row-end: 3;
+                grid-column-start: 4 ;
+                grid-column-end: 5;
+            }
+            .d4{
+                grid-row-start: 2;
+                grid-column-start: 1 ;
+                grid-column-end: 3;
+            }
+            .d5{
+                grid-column-start: 3 ;
+                grid-column-end: 4;
+            }
+            .d6{
+                grid-row-start: 3;
+                grid-row-end: 5;
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+            .d7{
+                grid-column-start: 2;
+                grid-column-end: 4;
+            }
+            .d8{
+                grid-column-start: 4;
+                grid-column-end: 5;
+            }
+            .d9{
+                grid-row-start: 4;
+                grid-column-start: 2;
+                grid-column-end: 3;
+            }
+            .d10{
+                grid-column-start: 3;
+                grid-column-end: 5;
+            }
+            img{
                 width:100%;
-                text-align:center;
+                height:100%;
+                object-fit:cover; 
             }
-
-            #hero-text h1{
-                font-size:2.3rem;
-            }
-            /* Info Box Size */
-    .fancy-info{
-        height:45%;
-        transform:translateY(100%);
-        padding:10px;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-    }
-
-    /* When Open */
-    .img-toggle:checked + .img-label + .fancy-info{
-        transform:translateY(0);
-    }
-
-    /* TEXT SCALING */
-    .fancy-info h2{
-        font-size:0.95rem;
-        margin-bottom:4px;
-    }
-
-    .fancy-info p{
-        font-size:0.75rem;
-        line-height:1.2;
-    }
-
-    .tap-text{
-        font-size:0.65rem;
-    }
-
             
 
+            /* Fancy Card */
+            .fancy-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 12px;
+            }
+
+            .img-label {
+                display: block;
+                position: relative;
+                height: 100%;
+            }
+
+            .img-label img {
+                transition: 0.7s ease;
+                filter: brightness(0.95) contrast(1.05);
+            }
+
+            .gradient {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to top,
+                    rgba(20, 15, 10, 0.95),
+                    rgba(20, 15, 10, 0.45),
+                    transparent
+                );
+                opacity: 0;
+                transition: 0.5s;
+            }
+
+            .fancy-info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                backdrop-filter: blur(8px);
+                background: rgba(0, 0, 0, 0.45);
+                transform: translateY(100%);
+                transition: 0.5s cubic-bezier(.2, .8, .2, 1);
+            }
+
+            .fancy-info h2 {
+                font-size: clamp(1rem, 2vw, 1.5rem);
+                margin-bottom: 5px;
+            }
+
+            .fancy-info p {
+                font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+                color: #ddd;
+            }
+
+            /* CHECKBOX */
+            .img-toggle {
+                display: none;
+            }
+
+            .img-toggle:checked + .img-label + .fancy-info {
+                transform: translateY(0);
+            }
+
+            .img-toggle:checked + .img-label img {
+                transform: scale(1.12);
+            }
+
+            .img-toggle:checked + .img-label .gradient {
+                opacity: 1;
+            }
+
+            .fancy-card:hover img {
+                transform: scale(1.05);
+            }
 
 
+            /* SELECT YOUR DESTINATION */
+            #Select{
+                padding-left: 40px;
+                color: #f5e6cc; 
+            }
 
-/* Hide checkbox */
-.img-toggle{
-    display:none;
-}
-
-/* Make grid clickable */
-.grid{
-    position:relative;
-    cursor:pointer;
-    overflow:hidden;
-}
-
-/* Place Info Box */
-.place-info{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:rgba(0,0,0,0.75);
-    color:white;
-    padding:15px;
-    transform:translateY(100%);
-    transition:0.4s;
-}
-
-/* When clicked show info */
-.img-toggle:checked + label + .place-info{
-    transform:translateY(0);
-}
-
-/* Hide checkbox */
-.img-toggle{
-    display:none;
-}
-
-/* Card Base */
-.fancy-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:12px;
-}
-
-/* Image wrapper */
-.img-label{
-    display:block;
-    position:relative;
-    height:100%;
-}
-
-/* Image smooth zoom */
-.img-label img{
-    transition:0.7s ease;
-    filter: brightness(0.95) contrast(1.05);
-}
-
-/* Gradient cinematic overlay */
-.gradient{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(20,15,10,0.95),
-        rgba(20,15,10,0.45),
-        transparent
-    );
-    opacity:0;
-    transition:0.5s;
-}
-
-/* Fancy Info Panel */
-.fancy-info{
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    padding:20px;
-    backdrop-filter: blur(8px);
-    background:rgba(0,0,0,0.45);
-    transform:translateY(100%);
-    transition:0.5s cubic-bezier(.2,.8,.2,1);
-}
-
-/* Text Styling */
-.fancy-info h2{
-    font-size:1.5rem;
-    margin-bottom:5px;
-}
-
-.fancy-info p{
-    font-size:0.95rem;
-    color:#ddd;
-}
-
-.tap-text{
-    font-size:0.75rem;
-    opacity:0.7;
-}
+             #cards{
+                display: none;
+            }
 
 
+            /* RESPONSIVE */
+            @media screen and (max-width: 800px) {
 
-    /* When clicked → Show Info */
-    .img-toggle:checked + .img-label + .fancy-info{
-        transform:translateY(0);
-    }
+                #navbar {
+                    justify-content: space-between;
+                }
 
-    /* When clicked → Zoom Image */
-    .img-toggle:checked + .img-label img{
-        transform:scale(1.12);
-    }
+                ul {
+                    display: none;
+                }
 
-    /* Show Gradient when active */
-    .img-toggle:checked + .img-label .gradient{
-        opacity:1;
-    }
+                .bi-list {
+                    display: block;
+                    font-size: 2em;
+                    padding: 10px;
+                    color: #f79e44;
+                   
 
-    /* Hover Effect */
-    .fancy-card:hover img{
-        transform:scale(1.05);
-    }
-    .img-toggle:checked + .img-label{
-        box-shadow: inset 0 0 25px rgba(255,153,51,0.25);
-    }
+                }
+
+                #check:checked ~ #menu {
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    top: 70px;
+                    right: 10px;
+                    background-color: rgba(63, 49, 49, 0.5);
+                    backdrop-filter: blur(10px);
+                    gap: 10px;
+                    width: 20%;
+                }
+
+                #menu li {
+                    text-align: center;
+                    width: 60%;
+                }
+
+                #menu li:hover {
+                    color: #ff9933;
+                    transform: scale(1.15);
+                }
+
+                #hero {
+                    flex-direction: column;
+                    gap: 40px;
+                }
+
+                #hero-text,
+                #login {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                #hero-text h1 {
+                    font-size: 2.3rem;
+                }
+
+                
+            }
+
+            @media screen and (max-width:680px){
+                #navbar {
+                    justify-content: space-between;
+                }
+
+                ul {
+                    display: none;
+                }
+
+                .bi-list {
+                    display: block;
+                    font-size: 2em;
+                    padding: 10px;
+                    color: #f79e44;
+                }
+
+                #check:checked ~ #menu {
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    top: 70px;
+                    right: 10px;
+                    background-color: rgba(63, 49, 49, 0.5);
+                    backdrop-filter: blur(10px);
+                    gap: 10px;
+                    width: 20%;
+                }
+
+                #menu li {
+                    text-align: center;
+                    width: 60%;
+                }
+
+                #menu li:hover {
+                    color: #ff9933;
+                    transform: scale(1.15);
+                }
+
+                #hero {
+                    flex-direction: column;
+                    gap: 40px;
+                }
+
+                #hero-text,
+                #login {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                #hero-text h1 {
+                    font-size: 2.3rem;
+                }
+
+                #cards .card{
+                    display: block;
+                }
+
+                #cards{
+                    padding:40px;
+                    display:grid;
+                    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+                    gap:25px;
+                    
+                }
+
+                .card{
+                    border: 3px solid #d0965c;
+                    backdrop-filter: blur(3px);
+                    padding:20px;
+                    border-radius:15px;
+                    text-align:center;
+                    transition:0.35s;
+                    overflow: hidden;
+                }
+
+                .card:hover{
+                    transform:translateY(-8px);
+                    border: 4px solid #ff9933;
+                }
+
+                .card img{
+                    width:100%;
+                    height:160px;
+                    object-fit:cover;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                    transition: transform 0.4s ease;
+                }
+
+                .card:hover img{
+                    transform: scale(1.1);
+                }
 
 
-}
+                .card h2{
+                    margin-bottom:8px;
+                }
 
-</style>
-</head>
+                .card p{
+                    color:#bbb;
+                }
 
-<body>
+                #cards .card{
+                    display: block;
+                }
 
-    <img id="backimg" src="https://i.pinimg.com/1200x/8b/8d/68/8b8d68a2fbfd23930de9dbc9da6fb0c2.jpg">
+                .container{
+                    display: none;
+                }
+            }            
 
-    <!-- NAVBAR -->
-    <div id="navbar">
-        <div id="icon-box">
-            <i class="bi bi-luggage-fill"></i>
-            <h1>Travel India</h1>
-        </div>
+        </style>
+    </head>
+    <body>
 
-        <div id="navitems">
-            <input type="checkbox" id="check">
-            <label for="check"><i class="bi bi-list"></i></label>
-            <ul id="menu">
-                <li>Home</li>
-                <li>About</li>
-                <li>Help</li>
-                <li>Contact</li>
-                <li>Details</li>
-            </ul>
-        </div>
-    </div>
+        <img id="backimg" src="https://i.pinimg.com/1200x/8b/8d/68/8b8d68a2fbfd23930de9dbc9da6fb0c2.jpg">
 
-    <!-- HERO -->
-    <div id="hero">
+        <!-- NAVBAR -->
+        <div id="navbar">
+            <div id="icon-box">
+                <i class="bi bi-luggage-fill"></i>
+                <h1>Travel India</h1>
+            </div>
 
-        <div id="hero-text">
-            <h1>Discover The Beauty Of India</h1>
-            <p>From the Himalayas to Kerala backwaters, explore culture, food,
-                history and unforgettable landscapes.</p>
-        </div>
-
-        <div id="login"> 
-            <div id="form">
-                <h1>Login</h1>
-
-                <div class="input-box">
-                    <input type="text" placeholder=" " required>
-                    <label>Name</label>
-                </div>
-
-                <div class="input-box">
-                    <input type="email" placeholder=" " required>
-                    <label>Email</label>
-                </div>
-
-                <div class="input-box">
-                    <input type="password" placeholder=" " required>
-                    <label>Password</label>
-                </div>
-
-                <button>Login</button>
-
+            <div id="navitems">
+                <input type="checkbox" id="check">
+                <label for="check"><i class="bi bi-list"></i></label>
+                <ul id="menu">
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Help</li>
+                    <li>Contact</li>
+                    <li>Details</li>
+                </ul>
             </div>
         </div>
 
-    </div>
+        <!-- HERO -->
+        <div id="hero">
 
-    <!-- GRID-SECTION -->
+            <div id="hero-text">
+                <h1>Discover The Beauty Of India</h1>
+                <p>From the Himalayas to Kerala backwaters, explore culture, food,
+                    history and unforgettable landscapes.</p>
+            </div>
 
-    <div class="container">
+            <div id="login"> 
+                <div id="form">
+                    <h1>Login</h1>
 
-        <div class="grid d1 fancy-card">
+                    <div class="input-box">
+                        <input type="text" placeholder=" " required>
+                        <label>Name</label>
+                    </div>
 
-            <input type="checkbox" id="taj-toggle" class="img-toggle">
+                    <div class="input-box">
+                        <input type="email" placeholder=" " required>
+                        <label>Email</label>
+                    </div>
 
-            <label for="taj-toggle" class="img-label">
+                    <div class="input-box">
+                        <input type="password" placeholder=" " required>
+                        <label>Password</label>
+                    </div>
+
+                    <button>Login</button>
+
+                </div>
+            </div>
+
+        </div>
+        <h1 id="Select">Select your destination</h1>
+        <!-- GRID-SECTION -->
+
+        <div class="container">
+
+            <div class="grid d1 fancy-card">
+
+                <input type="checkbox" id="taj-toggle" class="img-toggle">
+
+                <label for="taj-toggle" class="img-label">
+                    <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Taj Mahal</h2>
+                    <p>📍 Agra, India</p>
+                    <p>💰 Budget: ₹5,000 – ₹15,000</p>
+                    
+                </div>
+
+            </div>
+
+
+            <div class="grid d2 fancy-card">
+                <input type="checkbox" id="kerala-toggle" class="img-toggle">
+
+                <label for="kerala-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/1200x/d3/ea/61/d3ea61bca2af8dfba72768bfe49da6e3.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Wayanad</h2>
+                    <p>📍 Kerala, India</p>
+                    <p>💰 Budget: ₹6,000 – ₹13,000</p>
+                    
+                </div>
+
+            </div>
+            
+            <div class="grid d3 fancy-card">
+                <input type="checkbox" id="varanasi-toggle" class="img-toggle">
+
+                <label for="varanasi-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/736x/eb/87/1f/eb871fcf471ec19ea21354e90fad14d6.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Varanasi</h2>
+                    <p>📍 Uttar Pradesh, India</p>
+                    <p>💰 Budget: ₹7,000 – ₹17,000</p>
+                    
+                </div>
+            </div>
+            <div class="grid d4 fancy-card">
+                <input type="checkbox" id="jaipur-toggle" class="img-toggle">
+
+                <label for="jaipur-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/1200x/17/16/0c/17160cf3dcae938504300466062deedf.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Jaipur</h2>
+                    <p>📍 Rajasthan, India</p>
+                    <p>💰 Budget: ₹6,000 – ₹12,000</p>
+                </div>
+            </div>
+            <div class="grid d5 fancy-card" >
+                <input type="checkbox" id="goa-toggle" class="img-toggle">
+
+                <label for="goa-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/1200x/25/5f/6f/255f6f0c6784a7ec19c683ec48492833.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Calangute Beach</h2>
+                    <p>📍 Goa , India</p>
+                    <p>💰 Budget: ₹8,000 – ₹15,000</p>
+                </div>
+            </div>
+            <div class="grid d6 fancy-card">
+                <input type="checkbox" id="puri-toggle" class="img-toggle">
+
+                <label for="puri-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/736x/48/c6/87/48c687c5689c496053040f008a6c7352.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Jaganath Temple</h2>
+                    <p>📍 Puri , India</p>
+                    <p>💰 Budget: ₹5,000 – ₹16,000</p>
+                </div>
+            </div>
+            <div class="grid d7 fancy-card">
+                <input type="checkbox" id="hampi-toggle" class="img-toggle">
+
+                <label for="hampi-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/736x/4c/66/03/4c6603c3c8d5456f7d905535ddbc0af6.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Hampi</h2>
+                    <p>📍 Karnataka, India</p>
+                    <p>💰 Budget: ₹9,000 – ₹15,000</p>
+                </div>
+            </div>
+            <div class="grid d8 fancy-card">
+                <input type="checkbox" id="ooty-toggle" class="img-toggle">
+
+                <label for="ooty-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/1200x/4f/11/fb/4f11fb991d01ce3b0cb942703df03d89.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Ooty</h2>
+                    <p>📍 Tamil Nadu, India</p>
+                    <p>💰 Budget: ₹6,000 – ₹12,000</p>
+                </div>
+            </div>
+            <div class="grid d9 fancy-card">
+                <input type="checkbox" id="desert-toggle" class="img-toggle">
+
+                <label for="desert-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/1200x/9e/35/e9/9e35e983fe70f4c3a1e5dbe22172a4da.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Dessert</h2>
+                    <p>📍 Rajasthan, India</p>
+                    <p>💰 Budget: ₹7,000 – ₹15,000</p>
+                </div>
+            </div>
+            <div class="grid d10 fancy-card">
+                <input type="checkbox" id="kashmir-toggle" class="img-toggle">
+
+                <label for="kashmir-toggle" class="img-label">
+                    <img src="https://i.pinimg.com/1200x/78/f6/54/78f654d115efff550debe535a4f9d83b.jpg">
+                    <div class="gradient"></div>
+                </label>
+
+                <div class="place-info fancy-info">
+                    <h2>Pahalgam</h2>
+                    <p>📍 Kashmir, India</p>
+                    <p>💰 Budget: ₹17,000 – ₹30,000</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- cards -->
+
+        <div id="cards">
+
+            <div class="card">
                 <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Taj Mahal</h2>
                 <p>📍 Agra, India</p>
                 <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
             </div>
 
-        </div>
-
-
-        <div class="grid d2 fancy-card">
-            <input type="checkbox" id="kerala-toggle" class="img-toggle">
-
-            <label for="kerala-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/1200x/d3/ea/61/d3ea61bca2af8dfba72768bfe49da6e3.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Wayanad</h2>
                 <p>📍 Kerala, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹6,000 – ₹13,000</p>    
             </div>
 
-        </div>
-        <div class="grid d3 fancy-card">
-            <input type="checkbox" id="varanasi-toggle" class="img-toggle">
-
-            <label for="varanasi-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/736x/eb/87/1f/eb871fcf471ec19ea21354e90fad14d6.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Varanasi</h2>
                 <p>📍 Uttar Pradesh, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹7,000 – ₹17,000</p>
             </div>
-        </div>
-        <div class="grid d4 fancy-card">
-            <input type="checkbox" id="jaipur-toggle" class="img-toggle">
 
-            <label for="jaipur-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/1200x/17/16/0c/17160cf3dcae938504300466062deedf.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Jaipur</h2>
                 <p>📍 Rajasthan, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹6,000 – ₹12,000</p>
             </div>
-        </div>
-        <div class="grid d5 fancy-card" >
-            <input type="checkbox" id="goa-toggle" class="img-toggle">
 
-            <label for="goa-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/1200x/25/5f/6f/255f6f0c6784a7ec19c683ec48492833.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Calangute Beach</h2>
                 <p>📍 Goa , India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹8,000 – ₹15,000</p>
             </div>
-        </div>
-        <div class="grid d6 fancy-card">
-            <input type="checkbox" id="puri-toggle" class="img-toggle">
 
-            <label for="puri-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/736x/48/c6/87/48c687c5689c496053040f008a6c7352.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Jaganath Temple</h2>
                 <p>📍 Puri , India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹5,000 – ₹16,000</p>
             </div>
-        </div>
-        <div class="grid d7 fancy-card">
-            <input type="checkbox" id="hampi-toggle" class="img-toggle">
 
-            <label for="hampi-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/736x/4c/66/03/4c6603c3c8d5456f7d905535ddbc0af6.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Hampi</h2>
                 <p>📍 Karnataka, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹9,000 – ₹15,000</p>
             </div>
-        </div>
-        <div class="grid d8 fancy-card">
-            <input type="checkbox" id="ooty-toggle" class="img-toggle">
 
-            <label for="ooty-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/1200x/4f/11/fb/4f11fb991d01ce3b0cb942703df03d89.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Ooty</h2>
                 <p>📍 Tamil Nadu, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹6,000 – ₹12,000</p>
+
             </div>
-        </div>
-        <div class="grid d9 fancy-card">
-            <input type="checkbox" id="desert-toggle" class="img-toggle">
 
-            <label for="desert-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/1200x/9e/35/e9/9e35e983fe70f4c3a1e5dbe22172a4da.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Dessert</h2>
                 <p>📍 Rajasthan, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹7,000 – ₹15,000</p>
             </div>
-        </div>
-        <div class="grid d10 fancy-card">
-            <input type="checkbox" id="kashmir-toggle" class="img-toggle">
 
-            <label for="kashmir-toggle" class="img-label">
+            <div class="card">
                 <img src="https://i.pinimg.com/1200x/78/f6/54/78f654d115efff550debe535a4f9d83b.jpg">
-                <div class="gradient"></div>
-            </label>
-
-            <div class="place-info fancy-info">
                 <h2>Pahalgam</h2>
                 <p>📍 Kashmir, India</p>
-                <p>💰 Budget: ₹5,000 – ₹15,000</p>
-                <span class="tap-text">Tap again to close</span>
+                <p>💰 Budget: ₹17,000 – ₹30,000</p>
             </div>
-        </div>
-    </div>
 
-</body>
+
+        </div>
+
+    </body>
 </html>
+
