@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel India</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: "Segoe UI", sans-serif;
+    color:white;
+}
+
+/* Background */
+#backimg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+    filter: brightness(0.55);
+}
+
+/* NAVBAR */
+#navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    background:rgba(63, 49, 49, 0.5);
+    backdrop-filter: blur(8px);
+    
+}
+
+#icon-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.bi-luggage-fill{
+    font-size:2rem;
+    color:#ff9933;
+}
+
+#icon-box h1{
+    font-weight:600;
+}
+
+#navitems ul{
+    list-style:none;
+}
+
+#navitems li{
+    display:inline-block;
+    margin-left:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#navitems li:hover{
+    color:#ff9933;
+}
+
+.bi-list {
+    display: none;
+}
+#check{
+    display: none;
+}
+
+/* HERO */
+#hero{
+    display:flex;
+    /* min-height:85vh; */
+    padding:40px;
+}
+
+#hero-text{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:15px;
+}
+
+#hero-text h1{
+    font-size:3rem;
+}
+
+#hero-text p{
+    font-size:1.2rem;
+    color:#ddd;
+}
+
+/* LOGIN */
+#login{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+
+#form{
+    width:320px;
+    padding:25px;
+    background:rgba(0,0,0,0.6);
+    border-radius:12px;
+    backdrop-filter: blur(10px);
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+#form h1{
+    text-align:center;
+}
+
+/* Floating Input */
+.input-box{
+    position:relative;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border-radius:6px;
+    border:1px solid #555;
+    background:transparent;
+    color:white;
+    outline:none;
+}
+
+.input-box label{
+    position:absolute;
+    left:12px;
+    top:12px;
+    font-size:14px;
+    color:#bbb;
+    transition:0.3s;
+    /* pointer-events:none; */
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label{
+    top:-8px;
+    font-size:12px;
+    color:#ff9933;
+    background:black;
+    padding:0 5px;
+}
+
+#form button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#ff9933;
+    color:black;
+    font-weight:600;
+    cursor:pointer;
+    
+}
+
+#form button:hover{
+    background:#df9953;
+    
+}
+
+/* CARDS */
+#cards{
+    padding:40px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    
+}
+
+.card{
+    border: 3px solid rgb(231, 155, 146);
+    /* background:#0d2742; */
+    backdrop-filter: blur(3px);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.35s;
+    overflow: hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border: 4px solid rgb(148, 77, 69) ;
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+    transition: transform 0.4s ease;
+}
+
+.card:hover img{
+    transform: scale(1.1);
+}
+
+
+.card h2{
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#bbb;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width:800px){
+
+    #navbar {
+                justify-content: space-between;
+            }
+
+            ul {
+                display: none;
+            }
+
+            .bi-list {
+                display: block;
+                font-size: 2em;
+                padding: 10px;
+                color: white;
+            }
+            #check:checked~#menu{
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: 5s;
+                position: absolute;
+                top:70px;
+                right: 10px;
+                background-color: rgba(63, 49, 49, 0.5);;
+                backdrop-filter: blur(10px);
+                gap: 20px;
+                width: 20%;
+            }
+            #menu li{
+                text-align: center;
+                width: 60%;
+                border-bottom: 2px solid ;
+            }
+            #menu li:hover{
+                color: #ff9933;
+                transform: scale(1.15);
+            }
+
+            #hero{
+                flex-direction:column;
+                gap:40px;
+            }
+
+            #hero-text,
+            #login{
+                width:100%;
+                text-align:center;
+            }
+
+            #hero-text h1{
+                font-size:2.3rem;
+            }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<img id="backimg" src="https://i.pinimg.com/1200x/8b/8d/68/8b8d68a2fbfd23930de9dbc9da6fb0c2.jpg">
+
+<!-- NAVBAR -->
+<div id="navbar">
+    <div id="icon-box">
+        <i class="bi bi-luggage-fill"></i>
+        <h1>Travel India</h1>
+    </div>
+
+    <div id="navitems">
+        <input type="checkbox" id="check">
+        <label for="check"><i class="bi bi-list"></i></label>
+        <ul id="menu">
+            <li>Home</li>
+            <li>About</li>
+            <li>Help</li>
+            <li>Contact</li>
+            <li>Details</li>
+        </ul>
+    </div>
+</div>
+
+<!-- HERO -->
+<div id="hero">
+
+    <div id="hero-text">
+        <h1>Discover The Beauty Of India</h1>
+        <p>From the Himalayas to Kerala backwaters, explore culture, food, history and unforgettable landscapes.</p>
+    </div>
+
+    <div id="login"> 
+        <div id="form">
+            <h1>Login</h1>
+
+            <div class="input-box">
+                <input type="text" placeholder=" " required>
+                <label>Name</label>
+            </div>
+
+            <div class="input-box">
+                <input type="email" placeholder=" " required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-box">
+                <input type="password" placeholder=" " required>
+                <label>Password</label>
+            </div>
+
+            <button>Login</button>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- CARDS -->
+<div id="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+<h2>Taj Mahal</h2>
+<p>Budget: ₹10,000</p>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/d3/ea/61/d3ea61bca2af8dfba72768bfe49da6e3.jpg">
+<h2>Kerala</h2>
+<p>Budget: ₹15,000</p>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/8f/5c/6b/8f5c6bbd4bbb281a111d5dde55be5a4e.jpg">
+<h2>Araku valley</h2>
+<p>Budget: ₹11,000</p>
+</div>
+
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/17/16/0c/17160cf3dcae938504300466062deedf.jpg">
+<h2>Jaipur</h2>
+<p>Budget: ₹8,000</p>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/25/5f/6f/255f6f0c6784a7ec19c683ec48492833.jpg">
+<h2>Goa</h2>
+<p>Budget: ₹12,000</p>
+</div>
+<div class="card">
+<img src="https://i.pinimg.com/1200x/77/71/a4/7771a4a31a9e1daaceef041245dc5af3.jpg">
+<h2>Lambasingi</h2>
+<p>Budget: ₹7,000</p>
+</div>
+
+</div>
+
+</body>
+</html>
