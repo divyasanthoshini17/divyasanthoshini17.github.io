@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="enquires">
+        <form action="/addEnquiry" method="POST">
+        <!-- <form id="enquiryForm"> -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="Number">Number:</label>
+            <input type="tel" id="Number" name="Number" required><br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <hr>
+
+    <!-- <h2>All Enquiries</h2>
+    <div id="enquiryList"></div>
+
+    <script>
+        // Load enquiries
+        function loadEnquiries() {
+            fetch('/getEnquiries')
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("enquiryList").innerHTML = data;
+                });
+        }
+
+        // Submit form without reload
+        document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('/addEnquiry', {
+                method: 'POST',
+                body: new URLSearchParams(formData)
+            })
+            .then(() => {
+                this.reset();
+                loadEnquiries(); // refresh list
+            });
+        });
+
+        // Initial load
+        loadEnquiries();
+    </script> -->
+
+</body>
+</html>
